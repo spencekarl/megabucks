@@ -8,14 +8,14 @@ class WinningsController < ApplicationController
                5 => 2500,
                6 => 500000 }
     phrases = { :winner => ["holy sh!t, you won!!",
-                            "you're a wizard harry.. i mean, a winner",
+                            "you're a winner harry",
                             "wtf, you actually won!",
                             "hell yeah!!!!",
                             "finally :)"],
                 :loser  => ["another week, another loser",
                             "did you really think the odds were in your favor?",
                             "you're a loser, again",
-                            "maybe next week :()",
+                            "maybe next week :-(",
                             "you won...$0",
                             "$zero"] }
 
@@ -26,7 +26,7 @@ class WinningsController < ApplicationController
 
     # store winning numbers, jackpot, bonus, and weekly video
     @winning_numbers = results["draws"][0]["winning_num"].split("-")
-    prizes[6] = results["draws"][0]["jackpot"]
+    prizes[6] = results["draws"][0]["jackpot"].delete "$"
     @bonus_number = results["draws"][0]["bonus"]
     @video_id = results["draws"][0]["video_id"]
     @video_url = "//www.youtube.com/embed/" + @video_id + "?autoplay=1&showinfo=0&autohide=1&controls=0&playlist=skf8mvqFqSo&loop=1"
