@@ -1,6 +1,6 @@
 class WinningsController < ApplicationController
   def index
-    my_numbers = [1, 12, 16, 11, 38, 29]
+    my_numbers = [8, 14, 16, 33, 38, 48]
     my_doubler = 2
     winning_count = 0
     prizes = { 3 => 2,
@@ -9,10 +9,15 @@ class WinningsController < ApplicationController
                6 => 500000 }
     phrases = { :winner => ["holy sh!t, you won!!",
                             "you're a wizard harry.. i mean, a winner",
-                            "wtf, you actually won!"],
+                            "wtf, you actually won!",
+                            "hell yeah!!!!",
+                            "finally :)"],
                 :loser  => ["another week, another loser",
-                            "do you really think the odds are in your favor?",
-                            "you're a loser, again :("] }
+                            "did you really think the odds were in your favor?",
+                            "you're a loser, again",
+                            "maybe next week :()",
+                            "you won...$0",
+                            "$zero"] }
 
     # open json lottery data page and parse results into ruby array
     page = "http://www.masslottery.com/data/json/games/lottery/11.json"
