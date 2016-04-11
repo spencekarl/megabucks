@@ -53,10 +53,17 @@ h2 {
   line-height: 1em;
   margin: 0;
   padding: 0;
-  font-size: 8em;
+  font-size: 10em;
   color: orange;
 }
 
+/*!
+ * animate.css -http://daneden.me/animate
+ * Version - 3.5.1
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ *
+ * Copyright (c) 2016 Daniel Eden
+ */
 @-webkit-keyframes tada {
   from {
     -webkit-transform: scale3d(1, 1, 1);
