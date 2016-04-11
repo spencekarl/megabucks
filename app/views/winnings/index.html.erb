@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <body>
-      <h1><%= @announcement %></h1>
-      <% if @i_won == :winner %>
-        <h2 class="animated infinite tada"><%= "$#{@winnings}" %></h2>
-      <% end %>
+  <h1><%= @announcement %></h1>
+  <% if @winner_loser == :winner %>
+    <h2 class="animated infinite tada"><%= "$#{@winnings}" %></h2>
+  <% end %>
 
-    <div id="video-frame">
-      <iframe id="video" frameborder="0" src="<%= @video_url %>"></iframe>
-    </div>
+  <div id="video-frame">
+    <iframe id="video" frameborder="0" src="<%= @video_url %>"></iframe>
+  </div>
 </body>
 </html>

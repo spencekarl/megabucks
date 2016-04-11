@@ -26,7 +26,7 @@ class WinningsController < ApplicationController
 
     # store winning numbers, bonus, jackpot
     winning_numbers = data["draws"][week]["winning_num"].split("-")
-    bonus_number = data["draws"][week]["bonus"]
+    bonus_number = data["draws"][week]["bonus"].to_i
     prizes[6] = data["draws"][week]["jackpot"].delete "$"
     # build video url
     video_id = data["draws"][week]["video_id"]
@@ -35,13 +35,13 @@ class WinningsController < ApplicationController
 
     # determine if i won
     winning_numbers.each { |num| winning_count += 1 if my_numbers.include?(num.to_i) }
-    @i_won = (prizes[winning_count] > 0) ? :winner : :loser
-    bonus_multiplier = (bonus_number.to_i == my_doubler && winning_count < 6) ? 2 : 1
+    @winner_loser = (prizes[winning_count] > 0) ? :winner : :loser
+    bonus_multiplier = (bonus_number == my_doubler && winning_count < 6) ? 2 : 1
 
     # determine winning/losing phrase
-    @announcement = phrases[@i_won].sample.upcase
+    @announcement = phrases[@winner_loser].sample.upcase
 
     # determine winning amount
-    @winnings = prizes[winning_count] * bonus_multiplier if @i_won == :winner
+    @winnings = prizes[winning_count] * bonus_multiplier if @winner_loser == :winner
   end
 end
