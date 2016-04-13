@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <body>
-  <h1><%= @announcement %></h1>
-  <% if @winner_loser == :winner %>
-    <h2 class="animated infinite tada"><%= "$#{@winnings}" %></h2>
+  <h1><%= @megabucks.announcement %></h1>
+  
+  <% if @megabucks.is_winner? %>
+    <h2 class="animated infinite tada"><%= "$#{@megabucks.prize}" %></h2>
   <% end %>
 
   <div id="video-frame">
-    <iframe id="video" frameborder="0" src="<%= @video_url %>"></iframe>
+    <iframe id="video" frameborder="0" src="<%= @megabucks.video %>"></iframe>
   </div>
 </body>
 </html>
